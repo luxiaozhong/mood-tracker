@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/game/game"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2d3436",
+    "navigationBarTitleText": "贪吃蛇",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#2d3436"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="header">
+    <text class="page-title">呼吸练习</text>
+    <view class="sound-btn" bindtap="toggleSound">
+      <text class="sound-icon">{{soundEnabled ? '🔊' : '🔇'}}</text>
+    </view>
+  </view>
+  <text class="subtitle">4-7-8 呼吸法，帮助快速放松</text>
+
+  <!-- 呼吸圆环 -->
+  <view class="breath-container">
+    <!-- SVG 进度环 -->
+    <view class="progress-ring-svg">
+      <svg class="progress-svg" viewBox="0 0 200 200">
+        <!-- 背景圆环 -->
+        <circle class="progress-bg" cx="100" cy="100" r="90" />
+        <!-- 进度圆环 -->
+        <circle 
+          class="progress-bar {{currentPhase}}" 
+          cx="100" 
+          cy="100" 
+          r="90"
+          style="stroke-dasharray: {{565 * progress / 100}} 565"
+        />
+      </svg>
+    </view>
+    
+    <!-- 中心圆 -->
+    <view class="breath-circle {{currentPhase}}" style="transform: scale({{0.8 + progress * 0.4 / 100}})">
+      <view class="inner-circle">
+        <text class="phase-text">{{phaseText}}</text>
+        <text class="cycle-count" wx:if="{{isBreathing}}">{{cycleCount + 1}} / {{totalCycles}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 指导文字 -->
+  <view class="instruction">
+    <text class="instruction-text">{{instructionText}}</text>
+  </view>
+
+  <!-- 次数选择 -->
+  <view class="cycle-selector" wx:if="{{!isBreathing}}">
+    <text class="selector-label">练习轮数：</text>
+    <picker bindchange="changeCycles" value="{{totalCycles - 1}}" range="{{[1,2,3,4,5]}}">
+      <view class="picker-value">{{totalCycles}} 轮</view>
+    </picker>
+  </view>
+
+  <!-- 开始/停止按钮 -->
+  <button class="breath-btn {{isBreathing ? 'stop' : 'start'}}" bindtap="startBreathing">
+    {{isBreathing ? '停止练习' : (currentPhase === 'complete' ? '再来一轮' : '开始呼吸')}}
+  </button>
+
+  <!-- 说明卡片 -->
+  <view class="tips-card">
+    <text class="tips-title">💡 呼吸方法</text>
+    <view class="tip-item">
+      <text class="tip-number">1</text>
+      <text class="tip-text">用鼻子吸气 4 秒</text>
+    </view>
+    <view class="tip-item">
+      <text class="tip-number">2</text>
+      <text class="tip-text">屏住呼吸 7 秒</text>
+    </view>
+    <view class="tip-item">
+      <text class="tip-number">3</text>
+      <text class="tip-text">用嘴呼气 8 秒</text>
+    </view>
+  </view>
+</view>

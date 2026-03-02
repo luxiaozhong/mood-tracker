@@ -1,0 +1,57 @@
+<view class="container">
+  <text class="page-title">情绪趋势</text>
+  
+  <view class="view-switcher">
+    <view 
+      class="switch-btn {{currentView === 'week' ? 'active' : ''}}"
+      data-view="week"
+      bindtap="switchView"
+    >本周</view>
+    <view 
+      class="switch-btn {{currentView === 'month' ? 'active' : ''}}"
+      data-view="month"
+      bindtap="switchView"
+    >近30天</view>
+  </view>
+
+  <view class="chart-container" wx:if="{{currentView === 'week'}}">
+    <view class="week-chart">
+      <view class="chart-item" wx:for="{{weekData}}" wx:key="day">
+        <view class="mood-bar">
+          <text wx:if="{{item.hasRecord}}" class="bar-emoji">
+            {{moodIcons[item.mood - 1]}}
+          </text>
+          <view wx:else class="bar-empty">-</view>
+        </view>
+        <text class="bar-day">{{item.day}}</text>
+        <text class="bar-date">{{item.date}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="chart-container" wx:if="{{currentView === 'month'}}">
+    <view class="month-legend">
+      <text>情绪低落 😢😟</text>
+      <text>情绪良好 🙂😄</text>
+    </view>
+    <view class="month-grid">
+      <view 
+        class="month-item mood-{{item.mood}}"
+        wx:for="{{monthData}}"
+        wx:key="date"
+      >
+        <text class="month-emoji">{{moodIcons[item.mood - 1]}}</text>
+        <text class="month-date">{{item.date}}</text>
+      </view>
+    </view>
+    <view class="empty-tip" wx:if="{{monthData.length === 0}}">
+      <text>还没有记录，快去记录第一条情绪吧~</text>
+    </view>
+  </view>
+
+  <view class="stats-summary" wx:if="{{recordedDays > 0}}">
+    <text class="summary-text">
+      本周记录了 {{recordedDays}} 天
+    </text>
+  </view>
+</view>

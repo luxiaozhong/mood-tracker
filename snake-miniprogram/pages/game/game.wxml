@@ -1,0 +1,125 @@
+<view class="container">
+  <!-- 难度选择按钮 -->
+  <view class="difficulty-bar">
+    <view class="difficulty-btn" bindtap="showDifficultySelector">
+      <text class="difficulty-text">{{difficulty === 'easy' ? '简单' : difficulty === 'normal' ? '普通' : '困难'}}</text>
+      <text class="difficulty-icon">⚙️</text>
+    </view>
+  </view>
+
+  <!-- 分数栏 -->
+  <view class="score-board">
+    <view class="score-item">
+      <text class="score-label">得分</text>
+      <text class="score-value">{{score}}</text>
+    </view>
+    <view class="score-item">
+      <text class="score-label">已吃</text>
+      <text class="score-value">{{foodsEaten}}</text>
+    </view>
+    <view class="score-item">
+      <text class="score-label">最高分</text>
+      <text class="score-value high">{{highScore}}</text>
+    </view>
+  </view>
+
+  <!-- 游戏区域 -->
+  <view class="game-area">
+    <view 
+      class="game-board"
+      style="width: {{gridSize * cellSize}}px; height: {{gridSize * cellSize}}px;"
+      bindtouchstart="onTouchStart"
+      bindtouchend="onTouchEnd"
+    >
+      <!-- 网格背景 -->
+      <view 
+        class="grid-cell"
+        wx:for="{{gridSize * gridSize}}"
+        wx:key="index"
+        style="width: {{cellSize}}px; height: {{cellSize}}px;"
+      />
+      
+      <!-- 蛇身 -->
+      <view 
+        class="snake-segment {{index === 0 ? 'head' : ''}}"
+        wx:for="{{snake}}"
+        wx:key="index"
+        style="left: {{item.x * cellSize}}px; top: {{item.y * cellSize}}px; width: {{cellSize}}px; height: {{cellSize}}px;"
+      />
+      
+      <!-- 食物 -->
+      <view 
+        class="food"
+        wx:if="{{food}}"
+        style="left: {{food.x * cellSize}}px; top: {{food.y * cellSize}}px; width: {{cellSize}}px; height: {{cellSize}}px;"
+      />
+    </view>
+
+    <!-- 游戏状态遮罩 -->
+    <view class="game-overlay" wx:if="{{gameState !== 'playing'}}">
+      <view class="overlay-content">
+        <text class="overlay-title" wx:if="{{gameState === 'ready'}}">准备开始</text>
+        <text class="overlay-title" wx:if="{{gameState === 'paused'}}">已暂停</text>
+        <text class="overlay-title" wx:if="{{gameState === 'over'}}">游戏结束</text>
+        <text class="overlay-score" wx:if="{{gameState === 'over'}}">得分: {{score}}</text>
+        <button class="game-btn" bindtap="{{gameState === 'ready' || gameState === 'over' ? 'startGame' : 'resumeGame'}}">
+          {{gameState === 'ready' || gameState === 'over' ? '开始游戏' : '继续'}}
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 控制按钮 -->
+  <view class="controls">
+    <view class="control-row">
+      <view class="control-btn {{activeDirection === 'up' ? 'active' : ''}}" bindtap="changeDirection" data-direction="up">▲</view>
+    </view>
+    <view class="control-row">
+      <view class="control-btn {{activeDirection === 'left' ? 'active' : ''}}" bindtap="changeDirection" data-direction="left">◀</view>
+      <view class="control-btn pause-btn" bindtap="{{gameState === 'playing' ? 'pauseGame' : (gameState === 'paused' ? 'resumeGame' : '')}}">
+        {{gameState === 'playing' ? '⏸' : (gameState === 'paused' ? '▶' : '')}}
+      </view>
+      <view class="control-btn {{activeDirection === 'right' ? 'active' : ''}}" bindtap="changeDirection" data-direction="right">▶</view>
+    </view>
+    <view class="control-row">
+      <view class="control-btn {{activeDirection === 'down' ? 'active' : ''}}" bindtap="changeDirection" data-direction="down">▼</view>
+    </view>
+  </view>
+
+  <!-- 提示 -->
+  <text class="tip">支持滑动手势控制方向 | 每10颗加速15%</text>
+
+  <!-- 难度选择弹窗 -->
+  <view class="modal-overlay" wx:if="{{showDifficultyModal}}" bindtap="hideDifficultySelector">
+    <view class="modal-content" catchtap="preventBubble">
+      <text class="modal-title">选择难度</text>
+      <view class="difficulty-options">
+        <view 
+          class="difficulty-option {{difficulty === 'easy' ? 'selected' : ''}}"
+          data-difficulty="easy"
+          bindtap="selectDifficulty"
+        >
+          <text class="option-name">简单</text>
+          <text class="option-desc">15×15 网格 | 慢速</text>
+        </view>
+        <view 
+          class="difficulty-option {{difficulty === 'normal' ? 'selected' : ''}}"
+          data-difficulty="normal"
+          bindtap="selectDifficulty"
+        >
+          <text class="option-name">普通</text>
+          <text class="option-desc">20×20 网格 | 中速</text>
+        </view>
+        <view 
+          class="difficulty-option {{difficulty === 'hard' ? 'selected' : ''}}"
+          data-difficulty="hard"
+          bindtap="selectDifficulty"
+        >
+          <text class="option-name">困难</text>
+          <text class="option-desc">25×25 网格 | 快速</text>
+        </view>
+      </view>
+      <button class="modal-close" bindtap="hideDifficultySelector">取消</button>
+    </view>
+  </view>
+</view>

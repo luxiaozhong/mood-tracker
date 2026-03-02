@@ -1,0 +1,244 @@
+.container {
+  padding: 30rpx;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+  position: relative;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+
+.sound-btn {
+  position: absolute;
+  right: 40rpx;
+  width: 70rpx;
+  height: 70rpx;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sound-icon {
+  font-size: 36rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: rgba(255,255,255,0.8);
+  margin-top: 10rpx;
+  margin-bottom: 60rpx;
+  display: block;
+}
+
+.breath-container {
+  position: relative;
+  width: 400rpx;
+  height: 400rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breath-circle {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10rpx);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 60rpx rgba(255,255,255,0.3);
+}
+
+.breath-circle.inhale {
+  background: rgba(85, 239, 196, 0.4);
+  box-shadow: 0 0 80rpx rgba(85, 239, 196, 0.5);
+}
+
+.breath-circle.hold {
+  background: rgba(116, 185, 255, 0.4);
+  box-shadow: 0 0 80rpx rgba(116, 185, 255, 0.5);
+}
+
+.breath-circle.exhale {
+  background: rgba(253, 203, 110, 0.4);
+  box-shadow: 0 0 80rpx rgba(253, 203, 110, 0.5);
+}
+
+.inner-circle {
+  text-align: center;
+}
+
+.phase-text {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+
+.cycle-count {
+  font-size: 28rpx;
+  color: rgba(255,255,255,0.8);
+  margin-top: 10rpx;
+  display: block;
+}
+
+.progress-ring-svg {
+  position: absolute;
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.progress-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.2);
+  stroke-width: 8;
+}
+
+.progress-bar {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.1s linear;
+}
+
+.progress-bar.inhale {
+  stroke: #55efc4;
+}
+
+.progress-bar.hold {
+  stroke: #74b9ff;
+}
+
+.progress-bar.exhale {
+  stroke: #fdcb6e;
+}
+
+.instruction {
+  margin-top: 60rpx;
+  text-align: center;
+}
+
+.instruction-text {
+  font-size: 32rpx;
+  color: #fff;
+  display: block;
+}
+
+.cycle-selector {
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.2);
+  padding: 20rpx 40rpx;
+  border-radius: 40rpx;
+}
+
+.selector-label {
+  font-size: 28rpx;
+  color: #fff;
+  margin-right: 20rpx;
+}
+
+.picker-value {
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: 500;
+  min-width: 80rpx;
+  text-align: center;
+}
+
+.breath-btn {
+  margin-top: 60rpx;
+  width: 400rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.breath-btn.start {
+  background: #fff;
+  color: #6C5CE7;
+}
+
+.breath-btn.stop {
+  background: rgba(255,255,255,0.3);
+  color: #fff;
+  border: 2rpx solid rgba(255,255,255,0.5);
+}
+
+.breath-btn::after {
+  border: none;
+}
+
+.tips-card {
+  margin-top: 60rpx;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  width: 80%;
+  backdrop-filter: blur(10rpx);
+}
+
+.tips-title {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.tip-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.tip-number {
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #fff;
+  margin-right: 20rpx;
+}
+
+.tip-text {
+  font-size: 26rpx;
+  color: rgba(255,255,255,0.9);
+}

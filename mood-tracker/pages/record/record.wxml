@@ -1,0 +1,47 @@
+<view class="container">
+  <text class="page-title">记录此刻</text>
+  
+  <view class="mood-section">
+    <text class="section-label">现在感觉如何？</text>
+    <view class="mood-selector">
+      <view 
+        class="mood-item {{mood === index + 1 ? 'active' : ''}}"
+        wx:for="{{moodIcons}}"
+        wx:key="index"
+        data-value="{{index + 1}}"
+        bindtap="selectMood"
+      >
+        <text class="mood-emoji">{{item}}</text>
+        <text class="mood-text">{{moodLabels[index]}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="trigger-section">
+    <text class="section-label">是什么影响了情绪？</text>
+    <view class="trigger-list">
+      <view 
+        class="trigger-item {{trigger === item ? 'active' : ''}}"
+        wx:for="{{triggers}}"
+        wx:key="item"
+        data-value="{{item}}"
+        bindtap="selectTrigger"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <view class="note-section">
+    <text class="section-label">想写点什么（可选）</text>
+    <textarea 
+      class="note-input"
+      placeholder="记录下此刻的想法..."
+      value="{{note}}"
+      bindinput="inputNote"
+      maxlength="200"
+    />
+  </view>
+
+  <button class="save-btn" bindtap="saveRecord">保存记录</button>
+</view>

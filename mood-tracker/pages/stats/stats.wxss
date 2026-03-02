@@ -1,0 +1,151 @@
+.container {
+  padding: 30rpx;
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #2d3436;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.view-switcher {
+  display: flex;
+  background: #e0e0e0;
+  border-radius: 40rpx;
+  padding: 6rpx;
+  margin-bottom: 30rpx;
+}
+
+.switch-btn {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx;
+  border-radius: 34rpx;
+  font-size: 28rpx;
+  color: #636e72;
+  transition: all 0.3s;
+}
+
+.switch-btn.active {
+  background: #fff;
+  color: #6C5CE7;
+  font-weight: 500;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.chart-container {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+}
+
+.week-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 300rpx;
+  padding-top: 50rpx;
+}
+
+.chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.mood-bar {
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar-emoji {
+  font-size: 60rpx;
+}
+
+.bar-empty {
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx dashed #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 24rpx;
+}
+
+.bar-day {
+  font-size: 24rpx;
+  color: #636e72;
+  margin-top: 15rpx;
+}
+
+.bar-date {
+  font-size: 20rpx;
+  color: #b2bec3;
+  margin-top: 5rpx;
+}
+
+.month-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #636e72;
+  margin-bottom: 20rpx;
+}
+
+.month-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+}
+
+.month-item {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.month-item.mood-1 { background: #ff7675; }
+.month-item.mood-2 { background: #fdcb6e; }
+.month-item.mood-3 { background: #dfe6e9; }
+.month-item.mood-4 { background: #74b9ff; }
+.month-item.mood-5 { background: #55efc4; }
+
+.month-emoji {
+  font-size: 32rpx;
+}
+
+.month-date {
+  font-size: 18rpx;
+  color: rgba(0,0,0,0.5);
+  margin-top: 4rpx;
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 60rpx;
+  color: #b2bec3;
+  font-size: 28rpx;
+}
+
+.stats-summary {
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.summary-text {
+  font-size: 26rpx;
+  color: #636e72;
+}

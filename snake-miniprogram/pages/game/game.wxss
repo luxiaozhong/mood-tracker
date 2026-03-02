@@ -1,0 +1,281 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #2d3436;
+  min-height: 100vh;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 难度选择 */
+.difficulty-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20rpx;
+}
+
+.difficulty-btn {
+  display: flex;
+  align-items: center;
+  background: #636e72;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+}
+
+.difficulty-text {
+  font-size: 24rpx;
+  color: #fff;
+  margin-right: 10rpx;
+}
+
+.difficulty-icon {
+  font-size: 28rpx;
+}
+
+/* 分数栏 */
+.score-board {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+.score-item {
+  text-align: center;
+}
+
+.score-label {
+  font-size: 24rpx;
+  color: #b2bec3;
+  display: block;
+}
+
+.score-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-top: 10rpx;
+}
+
+.score-value.high {
+  color: #fdcb6e;
+}
+
+/* 游戏区域 */
+.game-area {
+  position: relative;
+  margin-bottom: 40rpx;
+}
+
+.game-board {
+  position: relative;
+  background: #1e272e;
+  border: 4rpx solid #636e72;
+  border-radius: 8rpx;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.grid-cell {
+  box-sizing: border-box;
+  border: 1rpx solid #2d3436;
+}
+
+.snake-segment {
+  position: absolute;
+  background: #00b894;
+  border-radius: 4rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #00a383;
+  transition: all 0.05s linear;
+}
+
+.snake-segment.head {
+  background: #55efc4;
+  border: 2rpx solid #00b894;
+}
+
+.food {
+  position: absolute;
+  background: #ff7675;
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx #ff7675;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+}
+
+/* 遮罩层 */
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.overlay-score {
+  font-size: 36rpx;
+  color: #fdcb6e;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.game-btn {
+  background: #00b894;
+  color: #fff;
+  border: none;
+  border-radius: 40rpx;
+  padding: 20rpx 60rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.game-btn::after {
+  border: none;
+}
+
+/* 控制按钮 */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.control-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.control-btn {
+  width: 100rpx;
+  height: 100rpx;
+  background: #636e72;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: #fff;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.3);
+  transition: all 0.1s;
+}
+
+.control-btn:active,
+.control-btn.active {
+  transform: scale(0.95);
+  background: #74b9ff;
+  box-shadow: 0 0 30rpx #74b9ff;
+}
+
+.pause-btn {
+  background: #fdcb6e;
+  color: #2d3436;
+}
+
+.tip {
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  color: #636e72;
+}
+
+/* 难度选择弹窗 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #2d3436;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  width: 80%;
+  max-width: 500rpx;
+}
+
+.modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.difficulty-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.difficulty-option {
+  background: #636e72;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  border: 4rpx solid transparent;
+}
+
+.difficulty-option.selected {
+  border-color: #00b894;
+  background: rgba(0, 184, 148, 0.2);
+}
+
+.option-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.option-desc {
+  font-size: 24rpx;
+  color: #b2bec3;
+  display: block;
+}
+
+.modal-close {
+  background: #636e72;
+  color: #fff;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}
+
+.modal-close::after {
+  border: none;
+}

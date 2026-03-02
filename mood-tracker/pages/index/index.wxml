@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="header">
+    <text class="greeting">{{todayRecord ? '今天已记录' : '今天感觉如何？'}}</text>
+    <text class="date">{{todayDate}}</text>
+  </view>
+
+  <view class="today-card" wx:if="{{todayRecord}}">
+    <view class="mood-display">
+      <text class="mood-emoji">{{moodIcons[todayRecord.mood - 1]}}</text>
+      <text class="mood-label">{{moodLabels[todayRecord.mood - 1]}}</text>
+    </view>
+    <view class="trigger-tag" wx:if="{{todayRecord.trigger}}">
+      {{todayRecord.trigger}}
+    </view>
+    <text class="note" wx:if="{{todayRecord.note}}">{{todayRecord.note}}</text>
+  </view>
+
+  <view class="quick-record" wx:else bindtap="goRecord">
+    <text class="btn-text">+ 记录今日情绪</text>
+  </view>
+
+  <view class="stats-section">
+    <text class="section-title">本周概览</text>
+    <view class="stats-grid">
+      <view class="stat-item">
+        <text class="stat-value">{{weekStats.avgMood}}</text>
+        <text class="stat-label">平均情绪</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{weekStats.recordCount}}</text>
+        <text class="stat-label">记录次数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{weekStats.streakDays}}</text>
+        <text class="stat-label">连续天数</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="tip-card" wx:if="{{weekStats.avgMood < 3 && weekStats.recordCount > 0}}">
+    <text class="tip-icon">💡</text>
+    <text class="tip-text">最近情绪有点低落，试试深呼吸或出去走走？</text>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "desc": "贪吃蛇小游戏",
+  "rules": [{
+    "action": "allow",
+    "page": "*"
+  }]
+}

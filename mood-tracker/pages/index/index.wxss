@@ -1,0 +1,137 @@
+.container {
+  padding: 30rpx;
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 40rpx;
+}
+
+.greeting {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #2d3436;
+  display: block;
+}
+
+.date {
+  font-size: 28rpx;
+  color: #74b9ff;
+  margin-top: 10rpx;
+  display: block;
+}
+
+.today-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 10rpx 30rpx rgba(102, 126, 234, 0.3);
+}
+
+.mood-display {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.mood-emoji {
+  font-size: 80rpx;
+  margin-right: 20rpx;
+}
+
+.mood-label {
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 500;
+}
+
+.trigger-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  margin-bottom: 15rpx;
+}
+
+.note {
+  color: rgba(255,255,255,0.9);
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.quick-record {
+  background: #fff;
+  border: 4rpx dashed #6C5CE7;
+  border-radius: 20rpx;
+  padding: 60rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.btn-text {
+  color: #6C5CE7;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.stats-section {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #6C5CE7;
+  display: block;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #636e72;
+  margin-top: 10rpx;
+  display: block;
+}
+
+.tip-card {
+  background: #fff3cd;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.tip-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.tip-text {
+  font-size: 28rpx;
+  color: #856404;
+  flex: 1;
+  line-height: 1.5;
+}
